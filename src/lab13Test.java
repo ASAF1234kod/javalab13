@@ -1,3 +1,4 @@
+//fendoglu
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,10 +16,8 @@ public class lab13Test
     @BeforeEach
     public void setUp() throws Exception 
     {
-        // instantiate an instance of lab13
         lab = new lab13();
         
-        // read the input values and populate the ArrayList<Integer> in the lab13 class
         lab.readData(inputFilename);
         
         ArrayList<ArrayList<Integer>> testData = new ArrayList<>();
@@ -34,7 +33,7 @@ public class lab13Test
             {
                 ArrayList<Integer> currentTestData = testData.get(i); 
                 String inn;
-                input.readLine(); // Skip header line (e.g., "result1")
+                input.readLine();
                 while( (inn = input.readLine()) != null )
                 {
                     if( inn.length() > 0 )
@@ -49,8 +48,6 @@ public class lab13Test
                 testData.set(i, currentTestData);
             }
             input.close();
-            
-            // Populate expectedResult arrays using toArray [cite: 89, 123]
             expectedResult1 = testData.get(0).toArray(new Integer[0]);
             expectedResult2 = testData.get(1).toArray(new Integer[0]);
             expectedResult3 = testData.get(2).toArray(new Integer[0]);
@@ -62,40 +59,37 @@ public class lab13Test
         }       
     }
 
-    // Tests based on PDF Page 6 Expected Results
     @Test
     public void testGetTotalCount() {
-        assertEquals(1000, lab.getTotalCount()); // [cite: 73]
+        assertEquals(1000, lab.getTotalCount());
     }
 
     @Test
     public void testGetOddCount() {
-        assertEquals(507, lab.getOddCount()); // [cite: 76]
+        assertEquals(507, lab.getOddCount());
     }
 
     @Test
     public void testGetEvenCount() {
-        assertEquals(493, lab.getEvenCount()); // [cite: 77]
+        assertEquals(493, lab.getEvenCount());
     }
 
     @Test
     public void testGetDistinctGreaterThanFiveCount() {
-        assertEquals(94, lab.getDistinctGreaterThanFiveCount()); // [cite: 78]
+        assertEquals(94, lab.getDistinctGreaterThanFiveCount());
     }
-
-    // Array comparisons
     @Test
     public void testGetResult1() {
-        assertArrayEquals(expectedResult1, lab.getResult1()); // [cite: 80]
+        assertArrayEquals(expectedResult1, lab.getResult1());
     }
 
     @Test
     public void testGetResult2() {
-        assertArrayEquals(expectedResult2, lab.getResult2()); // [cite: 80]
+        assertArrayEquals(expectedResult2, lab.getResult2());
     }
 
     @Test
     public void testGetResult3() {
-        assertArrayEquals(expectedResult3, lab.getResult3()); // [cite: 80]
+        assertArrayEquals(expectedResult3, lab.getResult3());
     }
 }
